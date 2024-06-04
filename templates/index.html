@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Data Entry App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <!-- Navbar -->
+    <nav class="blue">
+      <div class="nav-wrapper container">
+        <a href="#" class="brand-logo">Data Entry App</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/add">Add Entry</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-4 mt-8">
+      <h1 class="text-4xl mb-4">Entries</h1>
+      <ul class="mt-4">
+        {% for entry in entries %}
+          <li class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <p class="text-lg font-semibold">{{ entry.name }}</p>
+            <p class="text-gray-600">{{ entry.email }}</p>
+            <a href="/edit/{{ entry.id }}" class="btn yellow darken-2">Edit</a>
+            <a href="/delete/{{ entry.id }}" class="btn red">Delete</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer blue mt-8">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Data Entry App</h5>
+            <p class="grey-text text-lighten-4">Manage your data efficiently and effectively.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2024 Data Entry App
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
